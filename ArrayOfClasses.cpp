@@ -1,21 +1,20 @@
 #include <iostream>
+#include <string>
 #include "Movie.h"
 
 using namespace std;
 
 Movie* sort(Movie* mo, int size) {
-	int n1;
-	int n2;
 
 	for (int i = 0; i < size; i++) {
 		int l = size - i - 1;
 		for (int n = 0; n < l; n++, mo++) {
 			Movie m1 = *mo;
 			Movie m2 = *(mo + 1);
-			n1 = m1.getName().at(0);
-			n2 = m2.getName().at(0);
+			string s1 = m1.getName();
+			string s2 = m2.getName();
 
-			if (n1 > n2) {
+			if (s1.compare(s2) > 0) {
 				swap(*mo, *(mo + 1));
 			}
 		}
